@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publish</title>
+</head>
+<body>
+    {% block main %}
+
+    <h2 align="center">Publish New App</h2>
+    <br>
+    <form action="{% url 'Publish' %}" method="post" align="center" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div style="height:60px">
+            <span style="display: inline-block; width: 150px">App Name: </span>
+            <input type="text" name="app_name" required="required" maxlength="50"/>
+        </div>
+        <div>
+            <span style="display: inline-block; width: 150px">Description: </span>
+            <textarea name="description" id="" cols="80" rows="10"></textarea>
+        </div>
+        <div>
+            <span style="display: inline-block; width: 150px">App Link: </span>
+            <input type="text" name="app_link" required="required">
+        </div>
+        <div style="height:60px">
+            <span style="display: inline-block; width: 150px">App Icon: </span>
+            <input type="file" name="app_icon">
+        </div>
+        <div style="height:60px">
+            <span style="display: inline-block; width: 150px">App Screen Shot: </span>
+            <input type="file" name="app_screen_shot">
+        </div>
+        <span style="color: red;">{{ image_error }}</span>
+        <div style="height:100px"><input class="btn btn-primary" type="submit" value="Publish"></div>
+    </form>
+
+    {% endblock main %}
+</body>
+</html>
+</html>

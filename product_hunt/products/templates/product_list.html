@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block main %}
+
+    <div class="container">
+        {% for product in products %}
+        <br>
+        <div class="row">
+            <div class="select2-container" style="width: 300px">
+                <h6>{{ product.id }}</h6>
+                <img class="card-img-top" src="{{ product.app_icon.url }}" alt="Card image cap" style="width: 10%">
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="card-img-top" src="{{ product.screen_shot.url }}" alt="Card image cap" style="width: 100%">
+            </div>
+            <div class="col-md-6" style="padding-left: 30px">
+                <h5 class="card-title"><a href="products/{{ product.id }}">{{ product.app_name }}</a></h5>
+                <p class="card-text">{{ product.text_cut }}</p>
+                <a href="products/{{ product.id }}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endblock main %}
+</body>
+</html>
+</html>

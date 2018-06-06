@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<body>
+    {% block main %}
+    <h2 align="center">Sign In Product Hunt</h2>
+    <br>
+    <form action="{% url 'Sign_In' %}" method="post" align="center">
+        {% csrf_token %}
+        <div style="height:60px">
+            <span style="display: inline-block; width: 150px">Username: </span>
+            <input type="text" name="username" required="required" maxlength="20"/>
+        </div>
+        <div style="height:60px">
+            <span style="display: inline-block; width: 150px">Password: </span>
+            <input type="password" name="password" required="required" />
+            <br>
+            <span style="color: red;">{{ error_message }}</span>
+        </div>
+        <div style="height:100px"><input class="btn btn-primary" type="submit" value="Sign In"></div>
+    </form>
+    {% endblock main %}
+</body>
+</html>

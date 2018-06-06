@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+          pre{
+              white-space: pre-wrap;
+              word-wrap: break-word;
+          }
+      </style>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block main %}
+    <div style="text-align: center">
+        <h1>{{ product_detail.app_name }}</h1>
+        <h3>{{ product_detail.publish_date }}</h3>
+        <img src="{{ product_detail.screen_shot.url }}" alt="" height=200>
+    </div>
+    <pre style="width: 750px; font-size: 150%; margin: 20px auto">{{ product_detail.description }}</pre>
+
+    {% endblock main %}
+</body>
+</html>
